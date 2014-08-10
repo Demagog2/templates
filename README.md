@@ -8,7 +8,7 @@ Depends on
 - Foundation 4 (included)
 - Sass (export from scss folder to a neighbouring css folder)
 
-# Structure:
+## Website structure
 
 - homepage: /
 - speakers: /speakers/
