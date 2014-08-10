@@ -1,0 +1,214 @@
+{% extends "_base.html.twig" %}
+
+{% block content %}
+
+{% include "_cover-story.html.twig" with {
+  'speakers': {
+    0: {
+      'name': 'Petr Fiala',
+      'link' : '/politici/67/petr-fiala',
+      'photo': 'http://demagog.cz/data/politik/t/13866987779742.jpg',
+      'stats': {
+        'true': 14,
+        'untrue': 1,
+        'misleading': 0,
+        'nonverifiable': 2
+      },
+    },
+    1: {
+      'name': 'Bohuslav Sobotka',
+      'link' : 'politici/4/bohuslav-sobotka',
+      'photo': 'http://demagog.cz/data/politik/t/13890882520212.jpg',
+      'stats': {
+        'true': 21,
+        'untrue': 5,
+        'misleading': 1,
+        'nonverifiable': 2
+      }
+    }
+  },
+  'title': 'Sobotka vs. Fiala',
+  'link': 'http://demagog.cz/diskusie/269/sobotka-vs-fiala',
+  'source': 'Otázky Václava Moravce, 13. červenec 2014.',
+  'picture': 'http://demagog.cz/data/diskusia/s/1405442833,1566.jpg',
+  'lead': 'Jedním z velkých témat duelu premiéra Sobotky a lídra opoziční ODS Fialy bylo projednávání služebního zákona, kdy se rozhořela pře, zda jeho nepřijetí ohrožuje evropské peníze pro Česko. Řeč došla také na předešlou vládou připravované jednotné inkasní místo či snižování spodní sazby DPH, které má současná koalice v plánu.'
+} %}
+
+
+
+
+<div class="row interesting-statements show-for-medium-up">
+
+  <div class="columns">
+    <h2>{% trans "Vybrané výroky z posledních debat" %}</h2>
+  </div>
+
+  {% include "_statement-small.html.twig" with {
+    'speaker': {
+      'name': 'Bohuslav Sobotka',
+      'link' : 'politici/4/bohuslav-sobotka',
+      'photo': 'http://demagog.cz/data/politik/t/13890882520212.jpg'
+    },
+    'statement': 'Nejenom zákon o státní službě, ale také například novela zákona EIA o posuzování vlivu na životní prostředí v České republice. Poměrně nedávno hrozilo, že bude zastaveno čerpání všech evropských prostředků, které jsou nějakým způsobem ovlivňovány právě v posuzování vlivu na životní prostředí. Nám se podařilo v Bruselu velmi rychle zabránit tomu, aby k tomu pozastavení prostředků došlo.',
+    'link': 'diskusie/259/#10723',
+    'source': '4. květen 2014, Otázky Václava Moravce',
+    'veracity': {
+      'value': 'misleading',
+      'name': 'Zavádějící'
+    }
+  } %}
+
+  {% include "_statement-small.html.twig" with {
+    'speaker': {
+      'name': 'Bohuslav Sobotka',
+      'link' : 'politici/4/bohuslav-sobotka',
+      'photo': 'http://demagog.cz/data/politik/t/13890882520212.jpg'
+    },
+    'statement': 'Jenom k tomu snížení daně z přidané hodnoty. My jsme před volbami navrhli jako sociální demokraté, aby se u léků a knih snížila sazba daně z přidané hodnoty, protože jsme v minulosti',
+    'link': 'diskusie/257/#10750',
+    'source': '4. květen 2014, Otázky Václava Moravce',
+    'veracity': {
+      'value': 'untrue',
+      'name': 'Nepravda'
+    }
+  } %}
+
+  {% include "_statement-small.html.twig" with {
+    'speaker': {
+      'name': 'Bohuslav Sobotka',
+      'link' : 'politici/4/bohuslav-sobotka',
+      'photo': 'http://demagog.cz/data/politik/t/13890882520212.jpg'
+    },
+    'statement': 'Na 1 korunu, kterou jsme zaplatili do společného rozpočtu, jsme dostali 2 koruny sem do České republiky.',
+    'link': 'diskusie/257/#10652',
+    'source': '4. květen 2014, Otázky Václava Moravce',
+    'veracity': {
+      'value': 'true',
+      'name': 'Pravda'
+    }
+  } %}
+</div>
+
+
+
+{% include "_internal-banner.html.twig" %}
+
+
+
+{% for i in 0..1 %} {# just to display more articles; 6 articles per page seems to be okay #}
+{% include "_article-preview.html.twig" with {
+  'speakers': {
+    0: {
+      'name': 'Andrej Babiš',
+      'photo': 'http://demagog.cz/data/politik/t/13856649351611.jpg'
+    },
+    1: {
+      'name': 'Miroslav Kalousek',
+      'photo': 'http://demagog.cz/data/politik/t/13856667484209.jpg'
+    }
+  },
+  'title': 'Souboj titánů',
+  'link': 'http://demagog.cz/diskusie/268/souboj-titanu',
+  'source': 'Otázky Václava Moravce, 29.&nbsp;červen&nbsp;2014',
+  'picture': 'http://demagog.cz/data/diskusia/s/1404224674,8955.jpg',
+  'lead': 'V nedělních Otázkách se utkaly dvě "těžké váhy" co se spravování státní kasy týče: současný ministr financí Andrej Babiš a exministr Miroslav Kalousek. Na přetřes přišla široká škála témat od rozpočtů současných i minulých vlád; nového systému státní pokladny; jmenování nových členů dozorčí rady ČEZ, které nově rozdmýchává vášně v koalici; sporných privatizačních projektech; či oběma dotyčnými často zmiňovaných registračních pokladen.'
+} %}
+
+{% include "_article-preview.html.twig" with {
+  'speakers': {
+    0: {
+      'name': 'Marian Jurečka',
+      'photo': 'http://demagog.cz/data/politik/t/13890924631791.jpg'
+    }
+  },
+  'title': 'Jurečka v HP',
+  'link': 'http://demagog.cz/diskusie/267/jurecka-v-hp',
+  'source': 'Hyde Park ČT24, 27.&nbsp;červen&nbsp;2014',
+  'picture': 'http://demagog.cz/data/diskusia/s/1404059158,74.jpg',
+  'lead': 'Ministr zemědělství v pořadu Hyde park ČT24 řešil celou řadu témat, která souvisí s prací jeho rezortu. Mluvil jednak o obhcodních řetězcích, o Lesích ČR, či církevních restitucích.'
+} %}
+
+{% include "_article-preview.html.twig" with {
+  'speakers': {
+    0: {'name': 'Miloš Zeman', 'photo': 'http://demagog.cz/data/politik/t/13890930043666.jpg'},
+    1: {'name': 'Alena Gajdůšková', 'photo': 'http://demagog.cz/data/politik/t/1390302411,113.jpg'},
+    2: {'name': 'Andrej Babiš', 'photo': 'http://demagog.cz/data/politik/t/13856649351611.jpg'},
+    3: {'name': 'Radim Fiala', 'photo': 'http://demagog.cz/data/politik/t/1390390716,9485.jpg'},
+    4: {'name': 'Miroslav Kalousek', 'photo': 'http://demagog.cz/data/politik/t/13856667484209.jpg'},
+    5: {'name': 'Jiří Dienstbier', 'photo': 'http://demagog.cz/data/politik/t/13393962218941.jpg'},
+    6: {'name': 'Petr Mach', 'photo': 'http://demagog.cz/data/politik/t/13683496525938.jpg'},
+    7: {'name': 'Martin Kuba', 'photo': 'http://demagog.cz/data/politik/t/13291229913993.jpg'},
+    8: {'name': 'Jan Hamáček', 'photo': 'http://demagog.cz/data/politik/t/13355474791503.jpg'},
+    9: {'name': 'Petr Fiala', 'photo': 'http://demagog.cz/data/politik/t/13866987779742.jpg'},
+    10: {'name': 'Tomio Okamura', 'photo': 'http://demagog.cz/data/politik/t/138919155211.jpg'},
+    11: {'name': 'Jiří  Paroubek', 'photo': 'http://demagog.cz/data/politik/t/13891905860404.jpg'},
+    12: {'name': 'Ivan Bartoš', 'photo': 'http://demagog.cz/data/politik/t/13412126152197.jpg'},
+    13: {'name': 'Matěj Fichtner', 'photo': 'http://demagog.cz/data/politik/t/1395263804,1077.jpg'},
+    14: {'name': 'Václav Klaus', 'photo': 'http://demagog.cz/data/politik/t/13626372259978.jpg'},
+    15: {'name': 'Milan Šarapatka', 'photo': 'http://demagog.cz/data/politik/t/1395815419,3493.jpg'},
+    16: {'name': 'Stanislav Polčák', 'photo': 'http://demagog.cz/data/politik/t/1390316732,8174.jpg'},
+    17: {'name': 'Ondřej Liška', 'photo': 'http://demagog.cz/data/politik/t/13799684761545.jpg'},
+    18: {'name': 'Jaroslava Jermanová', 'photo': 'http://demagog.cz/data/politik/t/13862510572784.jpg'},
+    19: {'name': 'Jiří Payne', 'photo': 'http://demagog.cz/data/politik/t/1401895256,0286.jpg'},
+    20: {'name': 'Richard Falbr', 'photo': 'http://demagog.cz/data/politik/t/13867152159482.jpg'},
+    21: {'name': 'Zbyněk Stanjura', 'photo': 'http://demagog.cz/data/politik/t/13891909548578.jpg'}
+  },
+  'title': 'Ověř to! (Období od 3. března do 9. srpna.)',
+  'link': 'http://demagog.cz/diskusie/230/over-to',
+  'source': 'Výroky od čtenářů, 26.&nbsp;červen&nbsp;2014',
+  'picture': 'http://demagog.cz/data/diskusia/s/1390399486,6746.jpg',
+  'lead': 'V této diskuzi Vám budeme pravidelně přinášet nově ověřené výroky, které získaly v naší aplikaci Ověř.to! nad 20 hlasů.'
+} %}
+{% endfor %}
+
+<div id="pagination">
+  <a class="current-page" href="http://demagog.cz/?page=1">1</a>
+  <a href="http://demagog.cz/?page=2">2</a>
+  <a href="http://demagog.cz/?page=3">3</a>
+  <a href="http://demagog.cz/?page=4">4</a>&hellip;
+  <a href="http://demagog.cz/?page=170">170</a>
+  <a href="http://demagog.cz/?page=2">Následující strana &raquo;</a>
+</div>
+
+
+
+
+<div class="row related">
+  <div class="large-6 columns">
+    <h3>Nejčtenější diskuze</h3>
+    <ul>
+      <li><a title="Sobotka vs. Fiala" href="diskusie/269" >Sobotka vs. Fiala</a> (Otázky Václava Moravce)</li>
+      <li><a title="Sobotka vs. Fiala" href="diskusie/269" >Jurečka v HP</a> (Otázky Václava Moravce)</li>
+      <li><a title="Sobotka vs. Fiala" href="diskusie/269" >Ověř to.</a> (Od čtenářů)</li>
+    </ul>
+  </div>
+
+  <div class="large-6 columns">
+    <h3>Odkazy</h3>
+    <ul>
+      <li><a href="http://www.demagog.sk/">Demagog.sk</a></li>
+      <li><a href="http://factcheck.org/" title="FactCheck.org &mdash; inšpirácia zo zahraničia">FactCheck.org</a> (inspirace ze zahraničí)</li>
+
+      <li><b>Partneři a sponzoři:</b>
+        <ul>
+          <li><a href="http://www.iuventa.sk/sk/Mladez-v-akcii/Home.alej">Program EÚ Mládež v akcii</a></li>
+          <li><a href="http://www.osf.cz/index.php">Nadace Open Society Fund Praha</a></li>
+          <li><a href="http://newtonmedia.cz/">NEWTON Media</a></li>
+          <li><a href="http://www.hereticpr.cz/">Heretic PR</a><br></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-6 columns">
+    <a class="twitter-timeline" href="https://twitter.com/DemagogCZ" data-widget-id="356381858889621504" data-chrome="nofooter">Tweets by @DemagogCZ</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
+  <div class="large-6 columns">
+      <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FDemagog.CZ&amp;width=952&amp;colorscheme=light&amp;connections=34&amp;stream=false&amp;header=false&amp;height=370" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:370px;" allowTransparency="true"></iframe>
+  </div>
+</div>
+
+{% endblock %}

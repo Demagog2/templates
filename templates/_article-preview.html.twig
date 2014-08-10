@@ -1,0 +1,20 @@
+<div class="row article-preview">
+  <div class="large-4 columns">
+    <div class="show-for-medium-up">
+      <a title="{{ title }}" href="{{ link }}" >
+        <img src="{{ picture }}" alt="{{ title }}" />
+      </a>
+    </div>
+  </div>
+
+  <div class="large-8 columns">
+    <h2><a class="title" title="{{ title }}" href="{{ link }}" >{{ title }}</a></h2>
+      <div class="speakers">
+        {% for speaker in speakers %}
+        <div class="photo-wrapper" title="{{ speaker.name }}"><img src="{{ speaker.photo }}"></div>
+        {% endfor %}
+      </div>
+
+    <p class="clickthrough"><i>{{ source|raw }}</i> &mdash; {{ lead }}  <a href="{{ link }}">Prohlédnout&nbsp;diskusi&nbsp;<span class="glyphicons circle_arrow_right"><i></i></span></a></p>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="cover-story">
+  {% if speakers.count < 3 %}
+  <div class="row">
+    <div class="columns">
+      <h1>
+        <a class="title" href="{{ link }}" >{{ title }}</a>
+      </h1>
+      <h4 class="guests">{{ source }}</h4>
+    </div>
+  </div>
+
+  <div class="row threeColumns">
+    <div class="large-4 columns">
+      <img src="{{ picture }}">
+    </div>
+    <div class="perex large-5 columns">
+      <p>{{ lead }} <a href="{{ link }}">Prohlédnout&nbsp;diskusi <span class="glyphicons circle_arrow_right"><i></i></span></a>
+      </p>
+    </div>
+    <div class="large-3 columns">
+      <div class="row">
+        {% for speaker in speakers %}
+          <div class="large-12 small-6 columns">
+            {% include "_speaker-stats.html.twig" with { 'speaker': speaker } %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% else %}
+    {# TODO #}
+  {% endif %}
+</div>

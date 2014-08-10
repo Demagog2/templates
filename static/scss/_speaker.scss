@@ -1,0 +1,137 @@
+.photo-wrapper {
+	display: inline-block;
+	background: #eee;
+
+	-webkit-border-radius: 50%px;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+	}
+}
+
+.speaker {
+	text-align: center;
+
+	h4 {
+		margin: 0;
+		line-height: 1.2em;
+	}
+	.photo-wrapper {
+		margin-right: 0 auto;
+	}
+	.name-wrapper {
+		clear: right;
+	}
+	img {
+		width: 100px;
+	}
+	a {
+		color: $gray;
+		display: block;
+
+		&:hover {
+			color: $red;
+		}
+	}
+
+	&:last-child {
+		float: left !important;
+	}
+}
+
+.speaker-stats {
+	padding: 0px 0px 30px;
+	position: relative;
+
+
+	.speaker {
+		text-align: left;
+		margin-bottom: 0px;
+
+
+		.photo-wrapper {
+			float: none;
+			position: absolute;
+			bottom: 17px;
+			left: 105px;
+			display: block;
+			margin: 0;
+			width: 75px;
+			height: 75px;
+		}
+		.name-wrapper {
+			float: none;
+			position: relative;
+			margin: 0 0 5px;
+
+			h4 {
+				color: $gray;
+				text-align: left;
+			}
+		}
+	}
+
+	.numbers {
+		display: block;
+		overflow: hidden;
+		height: 32px;
+		text-align: left;
+		font-family: 'Oswald', sans-serif;
+		font-size: 24px;
+		line-height: 42px;
+		margin: 0;
+		padding-bottom: 10px;
+
+		.none, .none i:before {
+			//opacity: .3;
+			color: #ddd !important;
+		}
+
+		.glyphicons {
+			width: 50px;
+			white-space: nowrap;
+
+			i:before {
+				position: static;
+				font-size: 20px;
+			}
+		}
+	}
+
+
+
+}
+
+
+.politician {
+	.photo-wrapper {
+		width: 137px;
+		height: 137px;
+	}
+
+ 	h1 {
+ 		text-align: left;
+ 		margin: 25px 0 5px;
+ 	}
+
+ 	.politicianStats {
+ 		padding-bottom: 0;
+ 		font-family: Oswald;
+ 		font-size: 24px;
+
+ 		.glyphicons {
+ 			display: inline-block;
+ 			margin-right: 1em;
+	 		white-space: nowrap;
+
+	 		i:before {
+	 			position: static;
+	 			font-size: 20px;
+	 		}
+	 	}
+ 	}
+}

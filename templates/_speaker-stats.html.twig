@@ -1,0 +1,15 @@
+<div class="speaker-stats">
+  <div class="speaker">
+    <div class="name-wrapper"><h4><a href="{{ speaker.link }}">{{ speaker.name }}</a></h4></div>
+    <div class="photo-wrapper"><img src="{{ speaker.photo }}" alt="{{ speaker.name }}"></div>
+  </div>
+
+  <div class="numbers">
+    <span title="Pravda" class="glyphicons true {% if speaker.stats.true == 0 %}none{% endif %}"><i></i> <span class="veracityNumber">{{ speaker.stats.true }}</span></span>
+    <span title="Nepravda" class="glyphicons untrue {% if speaker.stats.untrue == 0 %}none{% endif %}"><i></i> <span class="veracityNumber">{{ speaker.stats.untrue }} </span></span>
+    </div>
+  <div class="numbers">
+    <span title="Zavádějící" class="glyphicons misleading {% if speaker.stats.misleading == 0 %}none{% endif %}"><i></i> <span class="veracityNumber">{{ speaker.stats.misleading }} </span></span>
+    <span title="Neověřitelné" class="glyphicons nonverifiable {% if speaker.stats.nonverifiable == 0 %}none{% endif %}"><i></i> <span class="veracityNumber">{{ speaker.stats.nonverifiable }} </span></span>
+  </div>
+</div>

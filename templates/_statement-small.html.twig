@@ -1,0 +1,15 @@
+<div class="statement large-4 columns">
+  <div class="photo-wrapper">
+    <img src="{{ speaker.photo }}" alt="{{ speaker.name }}">
+  </div>
+
+  <p>
+    <a href="{{ speaker.link }}" title="">{{ speaker.name }}</a>:
+    „{{ statement|truncate(170, true) }}“
+    <a href="{{ link }}">{{ source }}&nbsp;<span class="glyphicons circle_arrow_right"><i></i></span></a>
+  </p>
+
+  <p class="veracity {{ veracity.value }}">
+    <span title="{{ veracity.name }}" class="{{ veracity.value }} glyphicons"><i></i> {{ veracity.name }}</span>
+  </p>
+</div>
