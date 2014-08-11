@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% include "_cover-story.html.twig" with {
+{% set coverStory = {
   'speakers': {
     0: {
       'name': 'Petr Fiala',
@@ -34,16 +34,8 @@
   'lead': 'Jedním z velkých témat duelu premiéra Sobotky a lídra opoziční ODS Fialy bylo projednávání služebního zákona, kdy se rozhořela pře, zda jeho nepřijetí ohrožuje evropské peníze pro Česko. Řeč došla také na předešlou vládou připravované jednotné inkasní místo či snižování spodní sazby DPH, které má současná koalice v plánu.'
 } %}
 
-
-
-
-<div class="row interesting-statements show-for-medium-up">
-
-  <div class="columns">
-    <h2>{% trans "Vybrané výroky z posledních debat" %}</h2>
-  </div>
-
-  {% include "_statement-small.html.twig" with {
+{% set interestingStatements = {
+  0: {
     'speaker': {
       'name': 'Bohuslav Sobotka',
       'link' : 'politici/4/bohuslav-sobotka',
@@ -56,24 +48,8 @@
       'value': 'misleading',
       'name': 'Zavádějící'
     }
-  } %}
-
-  {% include "_statement-small.html.twig" with {
-    'speaker': {
-      'name': 'Bohuslav Sobotka',
-      'link' : 'politici/4/bohuslav-sobotka',
-      'photo': 'http://demagog.cz/data/politik/t/13890882520212.jpg'
-    },
-    'statement': 'Jenom k tomu snížení daně z přidané hodnoty. My jsme před volbami navrhli jako sociální demokraté, aby se u léků a knih snížila sazba daně z přidané hodnoty, protože jsme v minulosti',
-    'link': 'diskusie/257/#10750',
-    'source': '4. květen 2014, Otázky Václava Moravce',
-    'veracity': {
-      'value': 'untrue',
-      'name': 'Nepravda'
-    }
-  } %}
-
-  {% include "_statement-small.html.twig" with {
+  },
+  1: {
     'speaker': {
       'name': 'Bohuslav Sobotka',
       'link' : 'politici/4/bohuslav-sobotka',
@@ -86,94 +62,178 @@
       'value': 'true',
       'name': 'Pravda'
     }
-  } %}
-</div>
+  },
+  2: {
+    'speaker': {
+      'name': 'Bohuslav Sobotka',
+      'link' : 'politici/4/bohuslav-sobotka',
+      'photo': 'http://demagog.cz/data/politik/t/13890882520212.jpg'
+    },
+    'statement': 'Jenom k tomu snížení daně z přidané hodnoty. My jsme před volbami navrhli jako sociální demokraté, aby se u léků a knih snížila sazba daně z přidané hodnoty, protože jsme v minulosti',
+    'link': 'diskusie/257/#10750',
+    'source': '4. květen 2014, Otázky Václava Moravce',
+    'veracity': {
+      'value': 'untrue',
+      'name': 'Nepravda'
+    }
+  }
+} %}
 
+{% set articles = {
+  0: {
+    'speakers': {
+      0: {
+        'name': 'Andrej Babiš',
+        'photo': 'http://demagog.cz/data/politik/t/13856649351611.jpg'
+      },
+      1: {
+        'name': 'Miroslav Kalousek',
+        'photo': 'http://demagog.cz/data/politik/t/13856667484209.jpg'
+      }
+    },
+    'type': 'oneSource',
+    'title': 'Souboj titánů',
+    'link': 'http://demagog.cz/diskusie/268/souboj-titanu',
+    'source': 'Otázky Václava Moravce, 29. červen 2014',
+    'picture': 'http://demagog.cz/data/diskusia/s/1404224674,8955.jpg',
+    'lead': 'V nedělních Otázkách se utkaly dvě "těžké váhy" co se spravování státní kasy týče: současný ministr financí Andrej Babiš a exministr Miroslav Kalousek. Na přetřes přišla široká škála témat od rozpočtů současných i minulých vlád; nového systému státní pokladny; jmenování nových členů dozorčí rady ČEZ, které nově rozdmýchává vášně v koalici; sporných privatizačních projektech; či oběma dotyčnými často zmiňovaných registračních pokladen.'
+    },
+  1: {
+    'type': 'column',
+    'title': 'Svobodné nesmysly',
+    'link': 'http://demagog.cz/svobodne-nesmysly',
+    'pubDate': '22. květen 2014',
+    'picture': 'http://demagog.cz/data/pages/s/1400832683,145.jpg',
+    'lead': 'Strana svobodných občanů v kvapem se blížících volbách spíše než svůj program komunikuje dvacítku tzv. „euronesmyslů“. Na nich chce ilustrovat řadu údajně nesmyslných nařízení, regulací, kvót či plýtvání evropskými prostředky. Ve většině případů se ovšem nejedná o nic jiného než bez kontextu vytržená vyjádření. Demagog.CZ přináší svůj komentář ke čtyřem nejkřiklavějším z nich.'
+  },
+  2: {
+    'speakers': {
+      0: {'name': 'Miloš Zeman', 'photo': 'http://demagog.cz/data/politik/t/13890930043666.jpg'},
+      1: {'name': 'Alena Gajdůšková', 'photo': 'http://demagog.cz/data/politik/t/1390302411,113.jpg'},
+      2: {'name': 'Andrej Babiš', 'photo': 'http://demagog.cz/data/politik/t/13856649351611.jpg'},
+      3: {'name': 'Radim Fiala', 'photo': 'http://demagog.cz/data/politik/t/1390390716,9485.jpg'},
+      4: {'name': 'Miroslav Kalousek', 'photo': 'http://demagog.cz/data/politik/t/13856667484209.jpg'},
+      5: {'name': 'Jiří Dienstbier', 'photo': 'http://demagog.cz/data/politik/t/13393962218941.jpg'},
+      6: {'name': 'Petr Mach', 'photo': 'http://demagog.cz/data/politik/t/13683496525938.jpg'},
+      7: {'name': 'Martin Kuba', 'photo': 'http://demagog.cz/data/politik/t/13291229913993.jpg'},
+      8: {'name': 'Jan Hamáček', 'photo': 'http://demagog.cz/data/politik/t/13355474791503.jpg'},
+      9: {'name': 'Petr Fiala', 'photo': 'http://demagog.cz/data/politik/t/13866987779742.jpg'},
+      10: {'name': 'Tomio Okamura', 'photo': 'http://demagog.cz/data/politik/t/138919155211.jpg'},
+      11: {'name': 'Jiří  Paroubek', 'photo': 'http://demagog.cz/data/politik/t/13891905860404.jpg'},
+      12: {'name': 'Ivan Bartoš', 'photo': 'http://demagog.cz/data/politik/t/13412126152197.jpg'},
+      13: {'name': 'Matěj Fichtner', 'photo': 'http://demagog.cz/data/politik/t/1395263804,1077.jpg'},
+      14: {'name': 'Václav Klaus', 'photo': 'http://demagog.cz/data/politik/t/13626372259978.jpg'},
+      15: {'name': 'Milan Šarapatka', 'photo': 'http://demagog.cz/data/politik/t/1395815419,3493.jpg'},
+      16: {'name': 'Stanislav Polčák', 'photo': 'http://demagog.cz/data/politik/t/1390316732,8174.jpg'},
+      17: {'name': 'Ondřej Liška', 'photo': 'http://demagog.cz/data/politik/t/13799684761545.jpg'},
+      18: {'name': 'Jaroslava Jermanová', 'photo': 'http://demagog.cz/data/politik/t/13862510572784.jpg'},
+      19: {'name': 'Jiří Payne', 'photo': 'http://demagog.cz/data/politik/t/1401895256,0286.jpg'},
+      20: {'name': 'Richard Falbr', 'photo': 'http://demagog.cz/data/politik/t/13867152159482.jpg'},
+      21: {'name': 'Zbyněk Stanjura', 'photo': 'http://demagog.cz/data/politik/t/13891909548578.jpg'}
+    },
+    'type': 'oneSource',
+    'title': 'Ověř to! (Období od 3. března do 9. srpna.)',
+    'link': 'http://demagog.cz/diskusie/230/over-to',
+    'source': 'Výroky od čtenářů, 26. červen 2014',
+    'picture': 'http://demagog.cz/data/diskusia/s/1390399486,6746.jpg',
+    'lead': 'V této diskuzi Vám budeme pravidelně přinášet nově ověřené výroky, které získaly v naší aplikaci Ověř.to! nad 20 hlasů.'
+  },
+  3: {
+    'speakers': {
+      0: {
+        'name': 'Andrej Babiš',
+        'photo': 'http://demagog.cz/data/politik/t/13856649351611.jpg'
+      },
+      1: {
+        'name': 'Miroslav Kalousek',
+        'photo': 'http://demagog.cz/data/politik/t/13856667484209.jpg'
+      }
+    },
+    'type': 'oneSource',
+    'title': 'Souboj titánů',
+    'link': 'http://demagog.cz/diskusie/268/souboj-titanu',
+    'source': 'Otázky Václava Moravce, 29. červen 2014',
+    'picture': 'http://demagog.cz/data/diskusia/s/1404224674,8955.jpg',
+    'lead': 'V nedělních Otázkách se utkaly dvě "těžké váhy" co se spravování státní kasy týče: současný ministr financí Andrej Babiš a exministr Miroslav Kalousek. Na přetřes přišla široká škála témat od rozpočtů současných i minulých vlád; nového systému státní pokladny; jmenování nových členů dozorčí rady ČEZ, které nově rozdmýchává vášně v koalici; sporných privatizačních projektech; či oběma dotyčnými často zmiňovaných registračních pokladen.'
+    },
+  4: {
+    'speakers': {
+      0: {
+        'name': 'Marian Jurečka',
+        'photo': 'http://demagog.cz/data/politik/t/13890924631791.jpg'
+      }
+    },
+    'type': 'oneSource',
+    'title': 'Jurečka v HP',
+    'link': 'http://demagog.cz/diskusie/267/jurecka-v-hp',
+    'source': 'Hyde Park ČT24, 27. červen 2014',
+    'picture': 'http://demagog.cz/data/diskusia/s/1404059158,74.jpg',
+    'lead': 'Ministr zemědělství v pořadu Hyde park ČT24 řešil celou řadu témat, která souvisí s prací jeho rezortu. Mluvil jednak o obhcodních řetězcích, o Lesích ČR, či církevních restitucích.'
+  },
+  5: {
+    'speakers': {
+      0: {'name': 'Miloš Zeman', 'photo': 'http://demagog.cz/data/politik/t/13890930043666.jpg'},
+      1: {'name': 'Alena Gajdůšková', 'photo': 'http://demagog.cz/data/politik/t/1390302411,113.jpg'},
+      2: {'name': 'Andrej Babiš', 'photo': 'http://demagog.cz/data/politik/t/13856649351611.jpg'},
+      3: {'name': 'Radim Fiala', 'photo': 'http://demagog.cz/data/politik/t/1390390716,9485.jpg'},
+      4: {'name': 'Miroslav Kalousek', 'photo': 'http://demagog.cz/data/politik/t/13856667484209.jpg'},
+      5: {'name': 'Jiří Dienstbier', 'photo': 'http://demagog.cz/data/politik/t/13393962218941.jpg'},
+      6: {'name': 'Petr Mach', 'photo': 'http://demagog.cz/data/politik/t/13683496525938.jpg'},
+      7: {'name': 'Martin Kuba', 'photo': 'http://demagog.cz/data/politik/t/13291229913993.jpg'},
+      8: {'name': 'Jan Hamáček', 'photo': 'http://demagog.cz/data/politik/t/13355474791503.jpg'},
+      9: {'name': 'Petr Fiala', 'photo': 'http://demagog.cz/data/politik/t/13866987779742.jpg'},
+      10: {'name': 'Tomio Okamura', 'photo': 'http://demagog.cz/data/politik/t/138919155211.jpg'},
+      11: {'name': 'Jiří  Paroubek', 'photo': 'http://demagog.cz/data/politik/t/13891905860404.jpg'},
+      12: {'name': 'Ivan Bartoš', 'photo': 'http://demagog.cz/data/politik/t/13412126152197.jpg'},
+      13: {'name': 'Matěj Fichtner', 'photo': 'http://demagog.cz/data/politik/t/1395263804,1077.jpg'},
+      14: {'name': 'Václav Klaus', 'photo': 'http://demagog.cz/data/politik/t/13626372259978.jpg'},
+      15: {'name': 'Milan Šarapatka', 'photo': 'http://demagog.cz/data/politik/t/1395815419,3493.jpg'},
+      16: {'name': 'Stanislav Polčák', 'photo': 'http://demagog.cz/data/politik/t/1390316732,8174.jpg'},
+      17: {'name': 'Ondřej Liška', 'photo': 'http://demagog.cz/data/politik/t/13799684761545.jpg'},
+      18: {'name': 'Jaroslava Jermanová', 'photo': 'http://demagog.cz/data/politik/t/13862510572784.jpg'},
+      19: {'name': 'Jiří Payne', 'photo': 'http://demagog.cz/data/politik/t/1401895256,0286.jpg'},
+      20: {'name': 'Richard Falbr', 'photo': 'http://demagog.cz/data/politik/t/13867152159482.jpg'},
+      21: {'name': 'Zbyněk Stanjura', 'photo': 'http://demagog.cz/data/politik/t/13891909548578.jpg'}
+    },
+    'type': 'oneSource',
+    'title': 'Ověř to! (Období od 3. března do 9. srpna.)',
+    'link': 'http://demagog.cz/diskusie/230/over-to',
+    'source': 'Výroky od čtenářů, 26. červen 2014',
+    'picture': 'http://demagog.cz/data/diskusia/s/1390399486,6746.jpg',
+    'lead': 'V této diskuzi Vám budeme pravidelně přinášet nově ověřené výroky, které získaly v naší aplikaci Ověř.to! nad 20 hlasů.'
+  }
+} %}
 
+{% include "_cover-story.html.twig" with coverStory %}
+
+<section class="row interesting-statements show-for-medium-up">
+
+  <div class="columns">
+    <h2>{% trans "Vybrané výroky z posledních debat" %}</h2>
+  </div>
+
+  {% for statement in interestingStatements %}
+  {% include "_statement-small.html.twig" with statement %}
+  {% endfor %}
+
+</section>
 
 {% include "_internal-banner.html.twig" %}
 
-
-
-{% for i in 0..1 %} {# just to display more articles; 6 articles per page seems to be okay #}
-{% include "_article-preview.html.twig" with {
-  'speakers': {
-    0: {
-      'name': 'Andrej Babiš',
-      'photo': 'http://demagog.cz/data/politik/t/13856649351611.jpg'
-    },
-    1: {
-      'name': 'Miroslav Kalousek',
-      'photo': 'http://demagog.cz/data/politik/t/13856667484209.jpg'
-    }
-  },
-  'title': 'Souboj titánů',
-  'link': 'http://demagog.cz/diskusie/268/souboj-titanu',
-  'source': 'Otázky Václava Moravce, 29.&nbsp;červen&nbsp;2014',
-  'picture': 'http://demagog.cz/data/diskusia/s/1404224674,8955.jpg',
-  'lead': 'V nedělních Otázkách se utkaly dvě "těžké váhy" co se spravování státní kasy týče: současný ministr financí Andrej Babiš a exministr Miroslav Kalousek. Na přetřes přišla široká škála témat od rozpočtů současných i minulých vlád; nového systému státní pokladny; jmenování nových členů dozorčí rady ČEZ, které nově rozdmýchává vášně v koalici; sporných privatizačních projektech; či oběma dotyčnými často zmiňovaných registračních pokladen.'
-} %}
-
-{% include "_article-preview.html.twig" with {
-  'speakers': {
-    0: {
-      'name': 'Marian Jurečka',
-      'photo': 'http://demagog.cz/data/politik/t/13890924631791.jpg'
-    }
-  },
-  'title': 'Jurečka v HP',
-  'link': 'http://demagog.cz/diskusie/267/jurecka-v-hp',
-  'source': 'Hyde Park ČT24, 27.&nbsp;červen&nbsp;2014',
-  'picture': 'http://demagog.cz/data/diskusia/s/1404059158,74.jpg',
-  'lead': 'Ministr zemědělství v pořadu Hyde park ČT24 řešil celou řadu témat, která souvisí s prací jeho rezortu. Mluvil jednak o obhcodních řetězcích, o Lesích ČR, či církevních restitucích.'
-} %}
-
-{% include "_article-preview.html.twig" with {
-  'speakers': {
-    0: {'name': 'Miloš Zeman', 'photo': 'http://demagog.cz/data/politik/t/13890930043666.jpg'},
-    1: {'name': 'Alena Gajdůšková', 'photo': 'http://demagog.cz/data/politik/t/1390302411,113.jpg'},
-    2: {'name': 'Andrej Babiš', 'photo': 'http://demagog.cz/data/politik/t/13856649351611.jpg'},
-    3: {'name': 'Radim Fiala', 'photo': 'http://demagog.cz/data/politik/t/1390390716,9485.jpg'},
-    4: {'name': 'Miroslav Kalousek', 'photo': 'http://demagog.cz/data/politik/t/13856667484209.jpg'},
-    5: {'name': 'Jiří Dienstbier', 'photo': 'http://demagog.cz/data/politik/t/13393962218941.jpg'},
-    6: {'name': 'Petr Mach', 'photo': 'http://demagog.cz/data/politik/t/13683496525938.jpg'},
-    7: {'name': 'Martin Kuba', 'photo': 'http://demagog.cz/data/politik/t/13291229913993.jpg'},
-    8: {'name': 'Jan Hamáček', 'photo': 'http://demagog.cz/data/politik/t/13355474791503.jpg'},
-    9: {'name': 'Petr Fiala', 'photo': 'http://demagog.cz/data/politik/t/13866987779742.jpg'},
-    10: {'name': 'Tomio Okamura', 'photo': 'http://demagog.cz/data/politik/t/138919155211.jpg'},
-    11: {'name': 'Jiří  Paroubek', 'photo': 'http://demagog.cz/data/politik/t/13891905860404.jpg'},
-    12: {'name': 'Ivan Bartoš', 'photo': 'http://demagog.cz/data/politik/t/13412126152197.jpg'},
-    13: {'name': 'Matěj Fichtner', 'photo': 'http://demagog.cz/data/politik/t/1395263804,1077.jpg'},
-    14: {'name': 'Václav Klaus', 'photo': 'http://demagog.cz/data/politik/t/13626372259978.jpg'},
-    15: {'name': 'Milan Šarapatka', 'photo': 'http://demagog.cz/data/politik/t/1395815419,3493.jpg'},
-    16: {'name': 'Stanislav Polčák', 'photo': 'http://demagog.cz/data/politik/t/1390316732,8174.jpg'},
-    17: {'name': 'Ondřej Liška', 'photo': 'http://demagog.cz/data/politik/t/13799684761545.jpg'},
-    18: {'name': 'Jaroslava Jermanová', 'photo': 'http://demagog.cz/data/politik/t/13862510572784.jpg'},
-    19: {'name': 'Jiří Payne', 'photo': 'http://demagog.cz/data/politik/t/1401895256,0286.jpg'},
-    20: {'name': 'Richard Falbr', 'photo': 'http://demagog.cz/data/politik/t/13867152159482.jpg'},
-    21: {'name': 'Zbyněk Stanjura', 'photo': 'http://demagog.cz/data/politik/t/13891909548578.jpg'}
-  },
-  'title': 'Ověř to! (Období od 3. března do 9. srpna.)',
-  'link': 'http://demagog.cz/diskusie/230/over-to',
-  'source': 'Výroky od čtenářů, 26.&nbsp;červen&nbsp;2014',
-  'picture': 'http://demagog.cz/data/diskusia/s/1390399486,6746.jpg',
-  'lead': 'V této diskuzi Vám budeme pravidelně přinášet nově ověřené výroky, které získaly v naší aplikaci Ověř.to! nad 20 hlasů.'
-} %}
+{% for article in articles %}
+  {% include "_article-preview.html.twig" with article %}
 {% endfor %}
 
-<div id="pagination">
+<nav class="pagination">
   <a class="current-page" href="http://demagog.cz/?page=1">1</a>
   <a href="http://demagog.cz/?page=2">2</a>
   <a href="http://demagog.cz/?page=3">3</a>
   <a href="http://demagog.cz/?page=4">4</a>&hellip;
   <a href="http://demagog.cz/?page=170">170</a>
   <a href="http://demagog.cz/?page=2">Následující strana &raquo;</a>
-</div>
+</nav>
 
-
-
-
-<div class="row related">
+<aside class="row related">
   <div class="large-6 columns">
     <h3>Nejčtenější diskuze</h3>
     <ul>
@@ -199,9 +259,9 @@
       </li>
     </ul>
   </div>
-</div>
+</aside>
 
-<div class="row">
+<aside class="row">
   <div class="large-6 columns">
     <a class="twitter-timeline" href="https://twitter.com/DemagogCZ" data-widget-id="356381858889621504" data-chrome="nofooter">Tweets by @DemagogCZ</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -209,6 +269,27 @@
   <div class="large-6 columns">
       <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FDemagog.CZ&amp;width=952&amp;colorscheme=light&amp;connections=34&amp;stream=false&amp;header=false&amp;height=370" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:370px;" allowTransparency="true"></iframe>
   </div>
-</div>
+</aside>
+
+<aside class="row references">
+      <div class="large-4 columns">
+        <div class="photo-wrapper"><img src="http://demagog.sk/static/images/referencie/michal_havran_ml.jpg" alt="Michal Havran ml."></div>
+        <h4><a href="http://www.jetotak.sk/" class="ext" title="Michal Havran ml." target="_blank">Michal Havran ml. </a></h4>
+        <p class="position">Slovenský syndikát novinárov</p>
+        <p>„Demagog.sk ukazuje, že politické lži sú pre politikov častokrát jediným spôsobom, ako hovoriť s voličmi. Demagóg ukázal, že politici nás považujú za príliš slabých nato, aby sme počúvali pravdu. Demagóg a jeho čitatelia dokazujú opak. Nechceme milosrdnú lož, chceme poznať pravdu."</p>
+      </div>
+      <div class="large-4 columns">
+        <div class="photo-wrapper"><img src="http://demagog.sk/static/images/referencie/marian_lesko.jpg" alt="Marián Leško"></div>
+        <h4><a href="http://www.sme.sk/autor_info.asp?id=1" class="ext" title="Marián Leško" target="_blank">Marián Leško </a></h4>
+        <p class="position">autor komentárov pre týždenník Trend</p>
+        <p>„Projekt Demagog.sk som si všimol už v čase, keď ešte nebol ani projektom. Ako každý, aj ja mám rád, keď časť mojej práce za mňa vykoná niekto iný. A páči sa mi, že ju vykoná tak, ako by som ju chcel robiť aj ja sám. Keby ste neboli, chýbali by ste mi."</p>
+      </div>
+      <div class="large-4 columns">
+        <div class="photo-wrapper"><img src="http://demagog.sk/static/images/referencie/gabriel_sipos.jpg" alt="Gabriel Šipoš"></div>
+        <h4><a href="http://spw.blog.sme.sk/" class="ext" title="Gabriel Šipoš" target="_blank">Gabriel Šipoš</a></h4>
+        <p class="position">Transparency International Slovensko</p>
+        <p>„Ak chceme, aby v televíznych politických diskusiách nevyhrával najkrajšie oblečený ci najplynulejší rečník, ale najpravdovravejší, treba verejnosti aj novinárom pomôcť s faktickou kontrolou výrokov. Nik to u nás nerobí dôslednejšie ako Demagog.sk."</p>
+      </div>
+</aside>
 
 {% endblock %}

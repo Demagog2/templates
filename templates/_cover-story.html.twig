@@ -1,13 +1,13 @@
-<div class="cover-story">
+<article class="cover-story">
   {% if speakers.count < 3 %}
-  <div class="row">
+  <header class="row">
     <div class="columns">
       <h1>
         <a class="title" href="{{ link }}" >{{ title }}</a>
       </h1>
-      <h4 class="guests">{{ source }}</h4>
+      <p class="source">{{ source }}</p>
     </div>
-  </div>
+  </header>
 
   <div class="row threeColumns">
     <div class="large-4 columns">
@@ -21,7 +21,7 @@
       <div class="row">
         {% for speaker in speakers %}
           <div class="large-12 small-6 columns">
-            {% include "_speaker-stats.html.twig" with { 'speaker': speaker } %}
+            {% include "_speaker-stats.html.twig" with speaker %}
           </div>
         {% endfor %}
       </div>
@@ -30,4 +30,4 @@
   {% else %}
     {# TODO #}
   {% endif %}
-</div>
+</article>

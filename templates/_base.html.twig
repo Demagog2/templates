@@ -29,8 +29,15 @@
 </head>
 <body>
 
-<header class="row">
-	<nav class="large-7 push-5 columns">
+<header class="row page-header">
+	<div class="large-5 columns">
+		<a href="/">
+			<h1>Demagog.cz</h1>
+			<img src="./static/images/logo.png" style="width: 311px; margin:15px 0;" alt="Demagog.cz" />
+		</a>
+	</div>
+
+	<nav class="large-7 columns">
 		<div class="row collapse">
 			<ul class="large-4 small-4 columns">
 				<li><a href="politici">Politici</a></li>
@@ -49,10 +56,6 @@
 			</ul>
 		</div>
 	</nav>
-
-	<div class="large-5 pull-7 columns">
-		<a href="/"><img src="./static/images/logo.png" style="width: 311px; margin:15px 0;" alt="Demagog.cz" /></a>
-	</div>
 </header>
 
 {% block content %}{% endblock %}

@@ -1,0 +1,310 @@
+{% extends "_base.html.twig" %}
+
+{% block content %}
+
+{% set article = {
+  'speakers': {
+    0: {
+      'name': 'Petr Fiala',
+      'link' : '/politici/67/petr-fiala',
+      'photo': 'http://demagog.cz/data/politik/t/13866987779742.jpg',
+      'stats': {
+        'true': 14,
+        'untrue': 1,
+        'misleading': 0,
+        'nonverifiable': 2
+      },
+    },
+    1: {
+      'name': 'Bohuslav Sobotka',
+      'link' : 'politici/4/bohuslav-sobotka',
+      'photo': 'http://demagog.cz/data/politik/t/13890882520212.jpg',
+      'stats': {
+        'true': 21,
+        'untrue': 5,
+        'misleading': 1,
+        'nonverifiable': 2
+      }
+    }
+  },
+  'title': 'Sobotka vs. Fiala',
+  'link': 'http://demagog.cz/diskusie/269/sobotka-vs-fiala',
+  'source': 'Otázky Václava Moravce, 13. červenec 2014.',
+  'picture': 'http://demagog.cz/data/diskusia/s/1405442833,1566.jpg',
+  'lead': 'Jedním z velkých témat duelu premiéra Sobotky a lídra opoziční ODS Fialy bylo projednávání služebního zákona, kdy se rozhořela pře, zda jeho nepřijetí ohrožuje evropské peníze pro Česko. Řeč došla také na předešlou vládou připravované jednotné inkasní místo či snižování spodní sazby DPH, které má současná koalice v plánu.'
+} %}
+
+<article class="article">
+<div class="row">
+  <div class="columns">
+    <h1>Sobotka vs. Fiala</h1>
+
+    <p class="source">Otázky Václava Moravce, 13. červenec 2014.
+		<a class="ext" href="http://www.ceskatelevize.cz/porady/1126672097-otazky-vaclava-moravce/214411030500713/video/">(videozáznam pořadu)</a><br>
+      	Moderátor: Václav Moravec
+    </p>
+  </div>
+</div>
+
+
+<div class="row">
+    <div class="large-8 large-centered columns">
+        <p class="lead">Jedním z velkých témat duelu premiéra Sobotky a lídra opoziční ODS Fialy bylo projednávání služebního zákona, kdy se rozhořela pře, zda jeho nepřijetí ohrožuje evropské peníze pro Česko. Řeč došla také na předešlou vládou připravované jednotné inkasní místo či snižování spodní sazby DPH, které má současná koalice v plánu. Diskutéři se dotkli také zahraničních misí či kšeftům se sociálním bydlením.</p>
+    </div>
+</div>
+
+
+
+<h2>Statistiky diskuze</h2>
+
+<div class="row">
+    {% if article.speakers|length == 1 %}<div class="large-3 large-centered columns">{% include "_speaker-stats.html.twig" with article.speakers|first %}</div>
+    {% else %}
+        {% if article.speakers|length == 2 %}<div class="large-3 columns">&nbsp;</div>{% endif %}
+        {% for speaker in article.speakers %}
+            <div class="large-3 columns">
+                {% include "_speaker-stats.html.twig" with speaker %}
+            </div>
+        {% endfor %}
+    <div class="columns"></div>
+    {% endif %}
+</div>
+
+
+{# <div class="row">
+    <div class="columns large-centered large-8">
+        <p class="color-legend">
+            <span class="true glyphicons circle_ok"><i></i> Pravda</span> &nbsp; &nbsp;
+            <span class="untrue glyphicons circle_remove"><i></i> Nepravda</span> &nbsp; &nbsp;
+            <span class="misleading glyphicons circle_exclamation_mark"><i></i> Zavádějící</span> &nbsp; &nbsp;
+            <span class="nonverifiable glyphicons circle_question_mark"><i></i> Neověřitelné</span>
+        </p>
+    </div>
+</div> #}
+
+
+<h2>Výroky</h2>
+
+<div class="row filters">
+    <p><select name="speaker-filter">
+    <option value="">Všichni politici</option>
+    <option value="67">Petr Fiala</option>
+    <option value="4">Bohuslav Sobotka</option>
+    </select>
+
+    <select name="veracity-filter">
+    <option value="">Všechny výroky</option>
+    <option value="true">Pravda</option>
+    <option value="untrue">Nepravda</option>
+    <option value="misleading">Zavádějící</option>
+    <option value="inverifiable">Neověřitelné</option>
+    </select></p>
+</div>
+
+
+
+{% set statements = {
+
+0: { "speaker": {
+    "link": "politici/4/bohuslav-sobotka",
+    "name": "Bohuslav Sobotka",
+    "photo": "/data/politik/t/13890882520212.jpg"
+    },
+    "statement": "My tomu (obstrukcím &mdash; pozn. Demagog.cz) nemůžeme žádným způsobem zabránit, platí jednací řád sněmovny, my jsme do něj žádným způsobem nezasáhli. Žádným způsobem jsme neomezili práva opozice vystupovat v rámci Poslanecké sněmovny.",
+    "veracity": "true",
+    "explanation": "Výrok odpovídá skutečnosti. Během tohoto volebního období nedošlo k žádné změně <a href='http://www.psp.cz/docs/laws/1995/90.html' title='zákona o jednacím řádu Poslanecké sněmovny' class='http'>zákona o jednacím řádu Poslanecké sněmovny</a>.<br>
+
+
+
+<p>
+Výrok Bohuslava Sobotky je reakcí na to, že pravicová opozice <a href='http://www.rozhlas.cz/zpravy/politika/_zprava/opozice-chysta-obstrukce-ve-snemovne-poslancum-se-boji-kraceni-dovolenych--1370968' title='chystá' class='http'>chystá</a>&nbsp;velmi důkladné projednávání na úterní mimořádnou schůzi Poslanecké sněmovny. Při vhodné strategii totiž může menšina ve Sněmovně na celé dny zablokovat jednání, jak dokázaly sociálnědemokratické <a href='http://zpravy.idnes.cz/klicove-okamziky-sestidenni-valky-o-reformy-ve-snemovne-pe3-/domaci.aspx?c=A111106_170807_domaci_jw' title='obstrukce' class='http'>obstrukce</a> v roce 2011.</p><p>Aktuálně je v druhém čtení <a href='http://www.psp.cz/sqw/historie.sqw?o=7&amp;t=26' title='novela zákona' class='http'>novela zákona</a> o jednacím řádu, která se ale věnuje zejména otevřenosti legislativního procesu. Poslední <a href='http://www.psp.cz/sqw/historie.sqw?o=6&amp;t=247'>změna jednacího řádu</a> byla přitom schválena před čtyřmi lety. Omezení vystoupení poslanců <a href='http://www.ceskatelevize.cz/ct24/domaci/265127-ano-chce-omezit-recneni-poslancu-a-zakazat-prodej-alkoholu-ve-snemovne/' title='prosazuje' class='http'>prosazuje</a> hnutí ANO, avšak ČSSD jej odmítá.</p>"
+},
+1: {"speaker": {
+    "link": "politici/4/bohuslav-sobotka",
+    "name": "Bohuslav Sobotka",
+    "photo": "/data/politik/t/13890882520212.jpg"
+    },
+    "statement": "Už jednou bylo to čerpání peněz z EU kvůli neexistenci služebního zákona zastaveno, my jsme kvůli tomu přišli o miliardy korun.",
+    "veracity": "untrue",
+    "explanation": "<p>Úvodem je třeba říci, že Ministerstvo pro místní rozvoj se ústy svého prvního náměstka Daniela Brauna&nbsp;<a href='http://www.financninoviny.cz/zpravy/mmr-cesko-doladilo-s-evropskou-komisi-zpusob-cerpani-penez-z-eu/1101146'>vyjádřilo</a>&nbsp;v tom smyslu, že&nbsp;<a href='http://www.strukturalni-fondy.cz/getmedia/9e8a398b-421c-4464-aa8f-c2fff5a59935/navhr-Dohody-o-partnerstvi-pro-programove-obdobi-2014-2020.pdf'>Dohodu o partnerství</a>, která je pro čerpání dotací základem,
+nepodmiňuje schválením&nbsp;<a href='http://www.psp.cz/sqw/text/orig2.sqw?idd=110360'>služebního
+zákona</a>&nbsp;(.pdf., verze aktuální v prvním čtení). Jiné&nbsp;<a href='http://www.euractiv.cz/cr-v-evropske-unii/clanek/sluzebni-zakon-plni-zemanuv-pozadavek-bude-ale-stacit-pro-cerpani-fondu-eu-011470'>zdroje</a>&nbsp;však uvádějí opak. Pro hodnocení
+problematického výroku toto ovšem není klíčové.</p>
+
+<p>K pozastavení dotací v minulosti již skutečně došlo. Přesněji se jednalo o&nbsp;<a href='http://www.rozhlas.cz/zpravy/evropskezalezitosti/_zprava/cesko-nedostane-nekolik-mesicu-penize-z-evropskych-fondu--1031748'>uzavření dohody</a>&nbsp;ČR
+a EU. Podle ní ČR nebude žádat o poskytnutí financí, neboť EU by je tak jako
+tak do okamžiku přistoupení k opatřením vedoucím k zefektivnění celého
+procesu ani neposkytla.&nbsp;Nicméně, jak jsme v našich analýzách již dříve&nbsp;<a href='http://demagog.cz/hladat?q=zastaveno+%C4%8Derp%C3%A1n%C3%AD'>rozebrali</a>, nebylo to
+výlučně z důvodu neexistence služebního zákona. Šlo spíše o celkovou
+nespokojenost s kontrolou odčerpaných peněz, jak popisují například
+servery&nbsp;<a href='http://www.euractiv.cz/print-version/clanek/situace-s-cerpanim-dotaci-z-fondu-eu-je-v-ceske-republice-vazna-009719'>Euraktiv</a>,&nbsp;<a href='http://zpravy.ihned.cz/c1-56355800-cesi-opravili-chyby-v-cerpani-dotaci-z-eu-o-znovuotevreni-fondu-rozhodne-brusel'>Ihned.cz</a>&nbsp;či&nbsp;<a href='http://www.rozhlas.cz/zpravy/evropskezalezitosti/_zprava/cesko-nedostane-nekolik-mesicu-penize-z-evropskych-fondu--1031748'>Český rozhlas</a>. Tento
+nedostatek by služební zákon nevyřešil, tudíž v této části je výrok premiéra
+Sobotky zavádějící.</p>
+
+<p>Při čerpání dotací skutečně hovoříme o částkách v řádech&nbsp;<a href='http://echo24.cz/a/iKutx/cesi-sahaji-po-miliardach-z-eu-problemem-je-romska-integrace'>miliard korun</a>. Na&nbsp;<a href='http://www.ceskatelevize.cz/ct24/ekonomika/179787-mmr-a-mf-pozastavily-dotacni-program-severozapad/'>dočasné zastavení čerpání
+finančních prostředků</a>&nbsp;z dotací EU bylo ovšem
+reagováno akčním plánem a v důsledku toho dle vyjádření MMR fakticky&nbsp;<a href='http://www.mvcr.cz/clanek/ziskali-jsme-420-miliard-korun.aspx'>nedošlo</a>&nbsp;k žádným
+finančním ztrátám. Jak je navíc v témže článku ministerstvem vysvětleno, možnost
+čerpat máme až dva roky zpětně, tedy až do konce roku 2015.</p>
+
+<p>Závěrem je třeba dodat, že i přes možnost, že fondy byly či budou nedočerpány, nemůže toto být nutným a přímým důsledkem dočasného pozastavení možnosti čerpání peněz z fondů EU. To navíc tak jako tak nebylo zapříčiněno chybějícím služebním zákonem. Výrok premiéra Sobotky je tedy
+nepravdivý.</p>"
+},
+
+2: { "speaker": {
+    "link": "politici/4/bohuslav-sobotka",
+    "name": "Bohuslav Sobotka",
+    "photo": "/data/politik/t/13890882520212.jpg"
+    },
+    "statement": "My jsme kritizováni (stran služebního zákona &mdash; pozn. Demagog.cz) ze dvou stran. Z jedné strany jsme kritizováni odbory, že jsme s přijetím tohoto zákona nespojili žádné konkrétní velké navýšení platů zaměstanců veřejného sektoru (&hellip;), a na druhou stranu jsme kritizováni opozicí, že jsme nevyčíslili finanční dopady.",
+    "veracity": "true",
+    "explanation": "Co se finančních dopadů týče, negativně je hodnotí například <a href='http://zpravy.aktualne.cz/domaci/sluzebni-zakon-se-musi-zmenit-rika-top-09-a-chce-60-dni/r~6873e6c6f08c11e3be660025900fea04/'>KSČM</a>.&nbsp;Ta se prostřednictvím poslance Klána <a href='http://www.psp.cz/eknih/2013ps/stenprot/005schuz/s005047.htm#r5'>vyjádřila</a>, že <i>finanční analýza zákona je provedena velice ledabyle</i>.“&nbsp;<a href='http://www.tyden.cz/rubriky/domaci/hladke-schvaleni-sluzebniho-zakona-v-ohrozeni_309656.html#.U8J6P_l_tmc' >TOP 09</a>&nbsp;pak vadí proces výběru vysokých státních funkcionářů a ODS se příčí ustavení tzv. <a href='http://www.ceskatelevize.cz/ct24/domaci/280100-ods-chce-sluzebni-zakon-bez-superurednika-predlozi-vlastni-verzi/' ><i>superúředníka</i></a>. Dodáváme, že finanční aspekt je <a href='http://www.ceskatelevize.cz/ct24/domaci/258330-rusnok-sluzebni-zakon-uredniky-omezi-musime-je-lepe-zaplatit/' >dlouhodobě</a> překážkou přijetí služebního zákona a kritizuje jej i koaliční <a href='http://echo24.cz/a/wUuYX/koalice-chce-v-tichosti-vyresit-spory-o-sluzebni-zakon' >KDU-ČSL</a>. Už&nbsp;v návrhu dnes bývalého premiéra Rusnoka představoval tento aspekt zásadní problém.&nbsp;<br>Z druhé strany skutečně i <a href='http://domaci.eurozpravy.cz/politika/96571-odbory-podporily-sluzebni-zakon-diskuze-ale-jeste-nekonci/'>odboráři</a> trvají na <i>vyčíslení finančních přínosů a nákladů, a to ještě před schválením normy ve Sněmovně. P</i>ožadovali rovněž <a href='echo24.cz/a/wAWhy/za-statni-sluzbu-25-procent-k-platu-babis-i-sobotka-pozadavek-smetli'>navýšení platového tarifu</a>&nbsp;o&nbsp;25%.<i><br></i>Bohuslav Sobotka tedy v tomto případě mluví pravdu.</div>"
+    },
+3: { "speaker": {
+    "link": "politici/4/bohuslav-sobotka",
+    "name": "Bohuslav Sobotka",
+    "photo": "/data/politik/t/13890882520212.jpg"
+    },
+    "statement": "My chceme už letos mít dohodu s Evropskou komisí na čerpání peněz v nové finanční perspektivě. Jenom připomínám, že ta nová finanční perspektiva nezačne příští rok. Ona už začala letos. A my letos nevyčerpáme ani korunu z té nové finanční perspektivy.",
+    "veracity": "true",
+    "explanation": "Nový víceletý finanční rámec je připraven na roky <a href='https://www.euroskop.cz/8905/sekce/financni-ramec-2014-2020/'>2014-2020</a>, což znamená, že opravdu začal již tento rok. Z&nbsp;<a href='http://www.strukturalni-fondy.cz/getmedia/74f64759-c322-4211-a12c-1ebac7ebd8dc/CMZ_2014_IQ_elektronicka-final.pdf'>monitorovací zprávy</a> (.pdf) čerpání evropských fondů za první čtvrtletí roku 2014 vydané 29. dubna pak vyplývá, že jsou stále čerpány prostředky z&nbsp;již minulého finančního rámce <a href='http://www.strukturalni-fondy.cz/cs/Informace-o-cerpani/monitorovaci-zprava'>2007-2013</a>. V&nbsp;rozhovoru s&nbsp;<a href='http://www.strukturalni-fondy.cz/cs/Fondy-EU/Narodni-organ-pro-koordinaci/Novinky/Ceska-republika-nehodla-prijmout-vse,-co-komise-po'>Danielem Braunem</a> (první náměstek ministryně pro místní rozvoj) bylo uvedeno, že první výzvy (v rámci nového finančního rámce) v&nbsp;některých programech budou spuštěny na konci tohoto roku.</div>"
+    },
+4: { "speaker": {
+    "link": "politici/4/bohuslav-sobotka",
+    "name": "Bohuslav Sobotka",
+    "photo": "/data/politik/t/13890882520212.jpg"
+    },
+    "statement": "Evropská komise nám žádné peníze nepošle, pokud 1. ledna nebude platit zákon o státní službě.",
+    "veracity": "untrue",
+    "explanation": "Ač přijetí zákona o státní službě spadá do předběžné podmínky (ex ante kondicionalita) <a href='http://www.strukturalni-fondy.cz/getmedia/03011528-0625-472f-94d2-d532064bbad0/Priloha_Hodnoceni-naplnovani-predbeznych-podminek_17-4-2014.pdf'>č. 11 Existence strategického politického rámce pro posílení účinnosti veřejné správy členských států, včetně reformy veřejné správy</a> (.pdf, str. 70 a dále), není v&nbsp;<a href='http://www.strukturalni-fondy.cz/getmedia/3471bed1-8a29-484e-bcdf-65444cf99f08/Dohoda-o-partnerstvi_17-4-2014.pdf'>Dohodě o partnerství</a> (.pdf) odeslané 17. dubna na Evropskou komisi dán žádný závazný termín plnění. Zároveň je nutné dodat, že se Komise vyjádřila, že v&nbsp;případě nesplnění podmínek přihlédne k&nbsp;<a href='http://www.mmr.cz/getmedia/414db83c-ccdf-42af-9747-fe3099dad363/Fiche-no-10_ex-ante-'>hledisku proporcionality</a> (v angličtině, str. 2):<br><br><i>The commission will ensure proportionality in determining any potential consequences of non-fulfilment of the ex-ante conditionalities by taking into account the amounts of funds which could be affected</i><i></i><br><br>Je tedy důvodné předpokládat, že nesplnění či (detailně obhájené) odložené plnění jedné z&nbsp;předběžných podmínek by nezapříčinilo úplné zastavení čerpání evropských fondů.<br>Toto potvrzuje také vyjádření 1. náměstka Ministerstva pro místní rozvoj Daniela Brauna, který&nbsp;<a href='http://www.euractiv.cz/regionalni-rozvoj/clanek/cr-se-dohodla-s-bruselem-na-novem-cerpani-z-evropskych-fondu-012002'>uvedl</a>:&nbsp;<i>Vážnější věc je služební zákon. Evropská komise nebude jeho absenci vázat na schválení či neschválení Dohody o partnerství. Bude ale chtít vidět průběžné verze zákona i prováděcí předpisy. Požaduje také záruky a závazky, že k jeho přijetí dojde v odpovídající podobě.</i><br>Dodejme ještě, že podle serveru <a href='http://zpravy.ihned.cz/c1-61511990-babis-sobotka-evropska-komise-eu-dotace-2017-sluzebni-zakon://zpravy.ihned.cz/c1-61511990-babis-sobotka-evropska-komise-eu-dotace-2017-sluzebni-zakon'>Ihned</a>, který získal vyjádření&nbsp;Martina Staška ze Zastoupení Evropské komise v ČR, <i>třebaže by měl být zákon přijat a uplatňován bez zbytečných odkladů, komise vždy zdůrazňovala, že urychlené přijetí zákona by nemělo být na úkor jeho kvality. </i>Jinými slovy, Evropská komise na okamžité přijetí zákona netlačí tak, jak naznačuje premiér. Podle Staškova vyjádření má Česko čas dokonce až do konce roku 2016.<br><br>Na základě výše uvedeného hodnotíme výrok jako nepravdivý.<br><br>"
+},
+5: { "speaker": {
+    "name": "Petr Fiala",
+    "photo": "/data/politik/t/13866987779742.jpg"
+    },
+    "statement": "27. června prohlasovala koalice komplexní pozměňující návrh v ústavně právním výboru. Poslancům byl doručen 3. července. 7. července byla svolána mimořádná schůze sněmovny. My máme dvanáct dní na to, abychom tuto změnu projednali. Abychom se s ní seznámili.",
+    "veracity": "Pravda",
+    "explanation": "<p>Výrok hodnotíme jako pravdivý, protože data uváděná Petrem Fialou odpovídají skutečnosti. </p><p>Ústavně právní výbor Sněmovny se <a href='http://www.psp.cz/sqw/historie.sqw?o=7&amp;T=71'>novelou služebního zákona</a> zabýval hned několikrát, naposled na své <a href='http://www.psp.cz/sqw/text/orig2.sqw?idd=100064'>13. schůzi</a>&nbsp;(.doc) 27. června 2014, kde byl hlasy koalice <a href='http://www.ceskatelevize.cz/ct24/domaci/278493-vybor-kyvl-upravam-a-poslal-sluzebni-zakon-poslancum/'>schválen</a> komplexní pozměňující návrh. Ten byl poslancům rozeslán jako <a href='http://www.psp.cz/sqw/text/tiskt.sqw?o=7&amp;ct=71&amp;ct1=8'>sněmovní tisk 71/8</a> 3. července 2014. O čtyři dny později, 7. července, pak předseda Poslanecké sněmovny Jan Hamáček <a href='http://www.psp.cz/sqw/text/orig2.sqw?idd=100644&amp;pdf=1'>svolal</a>&nbsp;(.pdf) mimořádnou schůzi na 15. července, na kterou je novela služebního zákona zařazena jako bod 6. Poslanci tak mají 12 dní (od 3. do 15. července) na to, aby se s návrhem, který má 83 stran, seznámili.</p></div>"
+    },
+6: { "speaker": {
+    "link": "politici/67/petr-fiala",
+    "name": "Petr Fiala",
+    "photo": "/data/politik/t/13866987779742.jpg"
+    },
+    "statement": "Ten návrh ústavně právního výboru má 84 stran, 201 paragrafů, to přece za dvanáct dní nelze úplně dobře jednat.",
+    "veracity": "true",
+    "explanation": "Zmíněný pozměňující&nbsp;<a href='http://www.psp.cz/sqw/text/orig2.sqw?idd=100612&amp;pdf=1'>návrh služebího zákona</a> (.pdf) má skutečně 201 paragrafů a 83 stran. Z tohoto pohledu je výrok předsedy ODS pravdivý. Zda jej lze za 12 dnů dobře nastudovat, necháme na posouzení čtenáře, soustředíme se pouze na rozsáhlost zmíněného návrhu.</div>"
+    },
+7: { "speaker": {
+    "link": "politici/67/petr-fiala",
+    "name": "Petr Fiala",
+    "photo": "/data/politik/t/13866987779742.jpg"
+    },
+    "statement": "A ještě si vezměme ten způsob. Je to pozměňovací návrh. To první čtení proběhlo někdy v lednu. Je to úplně jiný vlastně zákon, který s tím, co bylo předloženo v prvním čtení, souvisí jenom velmi málo (&hellip;) Ale není to shoda v těch podstatných věcech, které tam jsou a které zavádějí některé novinky, které v podstatě významným způsobem podobu a způsob fungování státní správy změní.",
+    "veracity": "nonverifiable",
+    "explanation": "<p><a href='http://www.psp.cz/sqw/text/orig2.sqw?idd=90759'>Původní</a>&nbsp;poslanecký návrh novely služebního zákona se skutečně výrazně změnil.&nbsp;<a href='http://www.psp.cz/sqw/historie.sqw?o=7&amp;T=71'>První čtení</a>&nbsp;proběhlo 22. ledna 2014, aktuální verze projednávaná v Poslanecké sněmovně je skutečně&nbsp;<a href='http://www.psp.cz/sqw/text/orig2.sqw?idd=110360'>pozměňovacím návrhem</a>.</p>
+
+<p>To, zda-li je aktuální <a href='http://www.psp.cz/sqw/text/orig2.sqw?idd=110360'>pozměňovací návrh</a>&nbsp; úplně jiný zákon, nejsme
+schopni posoudit. Faktem je, že oproti <a href='http://www.psp.cz/sqw/text/orig2.sqw?idd=90759'>původnímu návrhu</a> nedošlo ke shodě
+například v penalizaci za kárné provinění&nbsp;(novela zachovává 15 % oproti
+navrhovaným 25 %, bod 46) či v podmínkách pro funkci generálního ředitele&nbsp;(návrh v bodě 35 žádá šest let praxe, novele postačuje věk a zkušenost s nižšími pozicemi ve státní službě). <a href='http://www.psp.cz/sqw/text/orig2.sqw?idd=90759'>Návrh</a> dále v bodech&nbsp;40 a 43&nbsp;žádá přiznání podílů na právnických osobách a cenných papírů uchazeči o místo ve státní službě či skončení pracovního poměru za určitých podmínek již při spáchání přestupku, což ale novela zcela vypustila.&nbsp;Texty se notně rozcházejí také v otázce vzdělávání státních zaměstnanců, příplatků a odměn obecně.&nbsp;</p><p>Dáváme tedy ke srovnání <a href='http://www.psp.cz/sqw/text/orig2.sqw?idd=90759'>původní</a> návrh, aktuální&nbsp;<a href='http://www.psp.cz/sqw/text/orig2.sqw?idd=110360'>pozměňovací</a> návrh a <a href='http://www.zakonyprolidi.cz/cs/2002-218'>nynější</a> znění služebního zákona a ohledně pravdivostní hodnoty označujeme výrok jako neověřitelný.&nbsp;</p></div>"
+},
+8: { "speaker": {
+    "link": "politici/67/petr-fiala",
+    "name": "Petr Fiala",
+    "photo": "/data/politik/t/13866987779742.jpg"
+    },
+    "statement": "A ještě se vrátím jednou větou k tomu argumentu, že to po nás chce Evropská unie (přijetí služebního zákona &mdash; pozn. Demagog.cz). To je dobrý argument, ale není to ex ante kondicionalita, není to nutná podmínka pro to, abychom mohli čerpat evropské fondy. Je to jakási politická, je to nějaký politický požadavek.",
+    "veracity": "true",
+    "explanation": "Petr Fiala reaguje na vyjádření premiéra, který v pořadu tvrdil, že nepřijetí služebního zákona by znamenalo zastavení evropských dotací od 1. ledna příštího roku.<br>Dle <a href='http://www.strukturalni-fondy.cz/getmedia/3471bed1-8a29-484e-bcdf-65444cf99f08/Dohoda-o-partnerstvi_17-4-2014.pdf'>Dohody o partnerství</a> (.pdf) odeslané dne 17. dubna 2014 na Evropskou komisi spadá přijetí zákona o státní službě do předběžné podmínky (ex ante kondicionalita) <a href='http://www.strukturalni-fondy.cz/getmedia/03011528-0625-472f-94d2-d532064bbad0/Priloha_Hodnoceni-naplnovani-predbeznych-podminek_17-4-2014.pdf'>č. 11 Existence strategického politického rámce pro posílení účinnosti veřejné správy členských států, včetně reformy veřejné správy</a> (.pdf, str. 70 a dále). Zmiňovaná dohoda však neobsahuje žádný závazný termín plnění.<br>Zároveň je nutné dodat, že se Komise vyjádřila, že v&nbsp;případě nesplnění podmínek přihlédne k&nbsp;<a href='http://demagog.cz/admin/diskusia/hodnotit/www.mmr.cz/getmedia/414db83c-ccdf-42af-9747-fe3099dad363/Fiche-no-10_ex-ante-'>hledisku proporcionality</a>&nbsp;(v angličtině, str. 2):<br><i ></i><i>The commission will ensure proportionality in determining any potential consequences of non-fulfilment of the ex-ante conditionalities by taking into account the amounts of funds which could be affected.</i><i ></i><br><br>Je tedy důvodné předpokládat, že nesplnění či (detailně obhájené) odložené plnění jedné z&nbsp;předběžných podmínek by nezapříčinilo úplné zastavení čerpání evropských fondů.<br>Toto potvrzuje také vyjádření 1. náměstka Ministerstva pro místní rozvoj Daniela Brauna, který <a href='http://www.euractiv.cz/regionalni-rozvoj/clanek/cr-se-dohodla-s-bruselem-na-novem-cerpani-z-evropskych-fondu-012002'>uvedl</a>: <i>Vážnější věc je služební zákon. Evropská komise nebude jeho absenci vázat na schválení či neschválení Dohody o partnerství. Bude ale chtít vidět průběžné verze zákona i prováděcí předpisy. Požaduje také záruky a závazky, že k jeho přijetí dojde v odpovídající podobě.</i><br>Dodejme ještě, že podle serveru&nbsp;<a href='http://zpravy.ihned.cz/c1-61511990-babis-sobotka-evropska-komise-eu-dotace-2017-sluzebni-zakon://zpravy.ihned.cz/c1-61511990-babis-sobotka-evropska-komise-eu-dotace-2017-sluzebni-zakon'>Ihned</a>, který získal vyjádření&nbsp;Martina Staška ze Zastoupení Evropské komise v ČR,&nbsp;<i>třebaže by měl být zákon přijat a uplatňován bez zbytečných odkladů, komise vždy zdůrazňovala, že urychlené přijetí zákona by nemělo být na úkor jeho kvality.&nbsp;</i>Jinými slovy, Evropská komise na okamžité přijetí zákona netlačí. Podle Staškova vyjádření má Česko čas dokonce až do konce roku 2016.<br>Ačkoliv je tedy daná kondicionalita v Dohodě o partnerství uvedena, fakticky se skutečně nejedná o nutnou podmínku pro čerpání evropských fondů. Výrok je tedy pravdivý.</div>"
+    },
+9: { "speaker": {
+    "link": "politici/67/petr-fiala",
+    "name": "Petr Fiala",
+    "photo": "/data/politik/t/13866987779742.jpg"
+    },
+    "statement": "A ta obehraná písnička pana předsedy, sedm let jste vládli a my to teď napravujeme (&hellip;) Ale prosím vás, mezitím tu byla Rusnokova vláda, kterou jste vy podporovali a vy už jste půl roku u vlády.",
+    "veracity": "true",
+    "explanation": "Petr Fiala mluví o obehrané písničce. Tedy o tom, že vládli 7 let, je tím míněna první a druhá vláda Mirka Topolánka a vláda Petra Nečase, které ovšem trvali dohromady necelých <a href='http://www.vlada.cz/cz/clenove-vlady/historie-minulych-vlad/prehled-vlad-cr/1993-2007-cr/'>šest let</a>. &nbsp;<br>Vlády s účastí ODS od roku 2006 (vyjma Fischerovy vlády, kterou ODS podporovala také):<br>První vláda Mirka Topolánka: 4.9.2006&nbsp;−&nbsp;9.1.2007Druhá vláda Mirka Topolánka: 9.1.2007&nbsp;−&nbsp;8.5.2009Vláda Petra Nečase: 13.7. 2010&nbsp;−&nbsp;10.7.2013<br>ČSSD skutečně podporovala úřednickou vládu Jiřího Rusnoka, o čemž svědčí i fakt, že tato strana <a href='http://www.psp.cz/sqw/hlasy.sqw?g=58140&amp;l=cz'>hlasovala</a>&nbsp;pro důvěru&nbsp;vládě.<br><br>Současná vláda Bohuslava Sobotky je u moci <a href='http://zpravy.idnes.cz/jmenovani-koalicni-vlady-bohuslava-sobotky-fzd-/domaci.aspx?c=A140129_100909_domaci_kop'>od 29. ledna 2014</a>.&nbsp;29. července to bude půl roku.<br>Znění výroku tedy odpovídá realitě a výrok je hodnocen jako pravdivý.</div>"
+    },
+10: { "speaker": {
+    "link": "politici/67/petr-fiala",
+    "name": "Petr Fiala",
+    "photo": "/data/politik/t/13866987779742.jpg"
+    },
+    "statement": "Raději se zaměřme na to, že nemáme dohodu o partnerství, že Evropská komise má přes 80 různých výhrad k tomu, jak postupujeme.",
+    "veracity": "true",
+    "explanation": "Dohoda o partnerství, ke které měla Evropská komise 88 připomínek, skutečně není doposud schválena.<br>Dohoda o partnerství pro roky 2014−2020 byla vládou schválena <a href='http://nsmascr.cz/aktuality/2014/dohoda-o-partnerstvi/' >9. dubna 2014</a>. Následně byla předložena Evropské komisi, která se k ní měla vyjádřit do tří měsíců.&nbsp;<br>Následně měla <a href='http://www.financninoviny.cz/zpravy/mmr-cesko-doladilo-s-evropskou-komisi-zpusob-cerpani-penez-z-eu/1101146'>Evropská komise</a> 88 připomínek k navrhovanému využití evropských dotací. Evropské komisi se například nelíbilo finanční začleňování Romů do společnosti nebo absence služebního zákona.&nbsp;Většinu těchto připomínek se zástupcům České republiky podařilo vyřešit. Finální schválení této dohody se předpokládá během letních měsíců, nejpozději v září, což je o měsíc dříve, než se původně předpokládalo.</div>"
+    }
+} %}
+
+{% for statement in statements %}
+    {% include "_statement.html.twig" with statement %}
+{% endfor %}
+
+</article>
+
+
+<aside class="row">
+<div class="columns">
+
+<!-- FB LIKE BUTTON -->
+
+
+   <iframe src="http://www.facebook.com/plugins/like.php?href=http://demagog.cz/diskusie/269/sobotka-vs-fiala&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=30" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:30px;" allowTransparency="true"></iframe>
+
+<!-- KOMENTARE -->
+
+{#}  <p><small class="newtonmedia_note">Přepisy diskuzních relací poskytuje <a href="http://newtonmedia.cz/" class="ext" title="NEWTON Media">NEWTON Media</a>, spol. s r.o&hellip; Více informací o způsobu hodnocení na této stránce najdete na <a href="/jak-hodnotime-metodika">Hodnocení na Demagog.cz</a>.</small></p>
+
+  <hr />
+<div class="system_commentForm_container">
+
+<!-- <p>Přidat komentář můžete i bez přihlášení &mdash; vyplňte jméno v poli „Name“ a pak doplňte e-mail.</p> -->
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'demagogcz'; // required: replace example with your forum shortname
+    var disqus_identifier = 'diskusia-269';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</div> #}
+</div>
+</aside>
+
+<aside class="row">
+  <div class="large-8 large-centered columns">
+
+    <h1>Podobné diskuze</h1>
+    <ul class='list'>
+          <li>
+        <a href="diskusie/230/over-to" title="Ověř to!">Ověř to!</a>
+        (Výroky od čtenářů, 26. červen 2014)
+      </li>
+          <li>
+        <a href="diskusie/257/10-let-v-eu" title="10 let v EU">10 let v EU</a>
+        (Jiné, 23. duben 2014)
+      </li>
+          <li>
+        <a href="diskusie/270/premier-ve-20-minutach" title="Premiér ve 20 minutách">Premiér ve 20 minutách</a>
+        (20 minut Radiožurnálu,  8. srpen 2014)
+      </li>
+          <li>
+        <a href="diskusie/259/100-dni-vlady-bohuslava-sobotky" title="100 dní vlády Bohuslava Sobotky">100 dní vlády Bohuslava Sobotky</a>
+        (Otázky Václava Moravce,  4. květen 2014)
+      </li>
+    </ul>
+  </div>
+</aside>
+
+{% endblock %}

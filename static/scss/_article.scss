@@ -1,0 +1,82 @@
+article {
+	h1 {
+		text-align: center;
+		margin-top: 1em;
+	}
+
+	.source {
+		font-family: "Oswald", sans-serif;
+		text-align: center;
+		color: #585859;
+		font-weight: 300;
+		margin: 0 0 1em;
+		font-size: 1.4375em;
+	}
+}
+
+article.article {
+	h2 {
+		text-align: center;
+	}
+}
+
+.filters {
+	text-align: center;
+
+	select {
+		display: inline;
+		border: 1px solid #ccc;
+		padding: 10px;
+		background: white;
+		font-size: 14px;
+		-webkit-appearance: none;
+		border-radius: 0;
+		width: 25%;
+	}
+}
+
+.cover-story {
+	.lead {
+		padding: .75em 1.25em;
+		background-color: white;
+		background-color: rgba(255, 255, 255, 0.9);
+
+		p { margin-bottom: 0; }
+	}
+
+	.threeColumns {
+		& > div:nth-child(1), & > div:nth-child(2) {
+			border-top: 1px solid #eee;
+		}
+		& > div:nth-child(3) {
+			background: top right no-repeat url('./../images/third-column.png');
+
+			.row {
+				padding-top: 15px;
+			}
+		}
+	}
+}
+
+article.preview {
+	margin-top: 40px;
+
+	h1 {
+		font-size: emCalc(37px);
+		margin: -9px 0 10px;
+	}
+	.speakers { overflow: hidden; }
+	.speaker { margin-bottom: 10px; }
+	.photo-wrapper {
+		width: 70px;
+		height: 70px;
+		margin: 0 10px 10px 0;
+		display: block;
+		float: left;
+	}
+	.clickthrough {
+		margin-top: 0;
+	}
+}
+
+
