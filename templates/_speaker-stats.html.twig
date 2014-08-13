@@ -1,8 +1,8 @@
 <div class="speaker-stats">
-  <div class="speaker">
-    <div class="name-wrapper"><h4><a href="{{ link }}">{{ name }}</a></h4></div>
+  <figure class="speaker">
+    <p class="name"><a href="{{ link }}">{{ name }}</a></p>
     <div class="photo-wrapper"><img src="{{ photo }}" alt="{{ name }}"></div>
-  </div>
+  </figure>
 
   <div class="numbers">
     <span title="Pravda" class="glyphicons true {% if stats.true == 0 %}none{% endif %}"><i></i> <span class="veracityNumber">{{ stats.true }}</span></span>

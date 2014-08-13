@@ -14,7 +14,7 @@ article {
 	}
 }
 
-article.article {
+article.full-text {
 	h2 {
 		text-align: center;
 	}
@@ -27,7 +27,7 @@ article.article {
 		display: inline;
 		border: 1px solid #ccc;
 		padding: 10px;
-		background: white;
+		background: 97% 50% no-repeat url('./../images/select.png') white;
 		font-size: 14px;
 		-webkit-appearance: none;
 		border-radius: 0;
@@ -64,6 +64,7 @@ article.preview {
 	h1 {
 		font-size: emCalc(37px);
 		margin: -9px 0 10px;
+		text-align: left;
 	}
 	.speakers { overflow: hidden; }
 	.speaker { margin-bottom: 10px; }

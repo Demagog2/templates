@@ -15,16 +15,16 @@
 
 .speaker {
 	text-align: center;
+	margin: 0;
 
-	h4 {
-		margin: 0;
-		line-height: 1.2em;
-	}
 	.photo-wrapper {
 		margin-right: 0 auto;
 	}
-	.name-wrapper {
+	.name {
 		clear: right;
+		font-family: 'Oswald', sans-serif;
+		font-size: 24px;
+		font-weight: bold;
 	}
 	img {
 		width: 100px;
@@ -63,15 +63,11 @@
 			width: 75px;
 			height: 75px;
 		}
-		.name-wrapper {
+		.name {
 			float: none;
 			position: relative;
 			margin: 0 0 5px;
-
-			h4 {
-				color: $gray;
-				text-align: left;
-			}
+			text-align: left;
 		}
 	}
 
