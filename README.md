@@ -4,9 +4,13 @@ Templates for Demagog v2
 Templates for the Demagog2 are being prepped here.
 
 Depends on 
-- Twig (place into /Twig) 
+- Twig
 - Foundation 4 (included)
 - Sass (export from scss folder to a neighbouring css folder)
+
+## Install (via [composer](https://getcomposer.org))
+
+    composer install
 
 ## Website structure
 
