@@ -8,7 +8,7 @@ Depends on
 - Foundation 4 (included)
 - Sass (export from scss folder to a neighbouring css folder)
 
-## Install (via [composer](http://getcomposer.com))
+## Install (via [composer](https://getcomposer.org))
 
     composer install
 
